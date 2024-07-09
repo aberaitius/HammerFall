@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HammerPriceCalc | Auction Hammer Price Calculator</title>
+  <meta name="description" content="Easily calculate the hammer price for auction items based on your total expense. Perfect for auction bidders looking to budget accurately.">
+  <meta name="keywords" content="auction calculator, hammer price calculator, auction cost calculator, bidder budget calculator">
+  <meta name="author" content="HammerPriceCalc">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXX-Y');
+  </script>
+  <!-- Google Ads -->
+  <script data-ad-client="ca-pub-XXXXXXX" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="calculator">
+      <h1><i class="fas fa-gavel"></i> HammerPriceCalc</h1>
+      <p>Calculate the hammer price for auction items to ensure you stay within your budget. Simply enter your total expense, and we'll do the rest!</p>
+      <form id="auctionForm">
+        <div class="form-group">
+          <label for="totalExpense">Total Expense</label>
+          <input type="number" id="totalExpense" class="form-control" value="" placeholder="The total amount you are willing to spend" required>
+          <span id="expenseError" class="error-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="buyerPremiumRate">Buyer's Premium (%)</label>
+          <input type="number" id="buyerPremiumRate" class="form-control" placeholder="example: 10 (10%)" value="" required>
+          <span id="premiumError" class="error-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="taxRate">Tax Rate on Hammer Price (%)</label>
+          <input type="number" id="taxRate" class="form-control" placeholder="example: 15 (15%)" value="" required>
+          <span id="taxError" class="error-message"></span>
+        </div>
+        <div class="form-group">
+          <label for="taxPremiumRate">Tax Rate on Buyer's Premium (%)</label>
+          <input type="number" id="taxPremiumRate" class="form-control" placeholder="example: 15 (15%)" value="" required>
+          <span id="taxPremiumError" class="error-message"></span>
+        </div>
+        <button type="submit" class="btn">Calculate Hammer Price</button>
+      </form>
+      <div id="result" class="result"></div>
+      <div id="explanation" class="explanation">
+        <h2>Explanation of Terms</h2>
+        <ul>
+          <li><strong>Total Expense:</strong> The total amount you are willing to spend.</li>
+          <li><strong>Buyer's Premium:</strong> A percentage fee paid by the buyer to the auction house, calculated on the hammer price.</li>
+          <li><strong>Tax Rate on Hammer Price:</strong> The percentage of tax applied to the hammer price.</li>
+          <li><strong>Tax Rate on Buyer's Premium:</strong> The percentage of tax applied to the buyer's premium.</li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2024 HammerPriceCalc. All rights reserved.</p>
+      <p>Disclaimer: We do not take any responsibility for calculations or miscalculations. Use this tool at your own discretion.</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
