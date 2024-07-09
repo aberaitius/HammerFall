@@ -7,63 +7,68 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-  }
-  
-  .container {
+}
+
+.container {
     width: 90%;
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-  }
-  
-  .calculator {
+}
+
+.calculator {
     background: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     text-align: center;
-  }
-  
-  h1 {
+}
+
+h1 {
     color: #4caf50;
     margin-bottom: 20px;
     font-size: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  h1 i {
+}
+
+h1 i {
     margin-right: 10px;
-  }
-  
-  p {
+}
+
+p {
     color: #333;
     font-size: 16px;
     margin-bottom: 20px;
-  }
-  
-  .form-group {
+}
+
+.form-group {
     margin-bottom: 20px;
     text-align: left;
-  }
-  
-  label {
+}
+
+label {
     display: block;
     margin-bottom: 5px;
     color: #333;
-  }
-  
-  input[type="number"] {
+}
+
+input[type="number"], input[type="text"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-  }
-  
-  .btn {
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
     display: inline-block;
     background: #4caf50;
     color: #fff;
@@ -74,54 +79,113 @@ body {
     font-size: 16px;
     transition: background 0.3s;
     margin: 10px 0;
-  }
-  
-  .btn:hover {
-    background: #45a049;
-  }
-  
-  .result {
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.result {
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #4caf50;
     border-radius: 5px;
     background: #e8f5e9;
     display: none;
-  }
-  
-  .result h3 {
+}
+
+.result h3 {
     margin: 0;
     color: #333;
-  }
-  
-  .error-message {
+}
+
+.error-message {
     color: red;
     font-size: 12px;
     display: none;
-  }
-  
-  .explanation {
+}
+
+.explanation {
     margin-top: 20px;
     text-align: left;
-  }
-  
-  .explanation h2 {
+}
+
+.explanation h2 {
     margin-top: 0;
-  }
-  
-  .explanation ul {
+}
+
+.explanation ul {
     list-style: none;
     padding: 0;
-  }
-  
-  .explanation ul li {
+}
+
+.explanation ul li {
     margin-bottom: 10px;
-  }
-  
-  footer {
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.editable {
+    width: 95%;
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: none;
+    
+}
+
+.editable:hover {
+    border-color: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.editable:focus {
+    border-color: transparent;
+    box-shadow: none;
+    outline: none;
+}
+
+.remove-btn {
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background: #e60000;
+}
+
+footer {
     font-size: 14px;
-    color: #666;
+    color: #667;
     text-align: center;
     margin-top: 20px;
-  }
-  
+}
