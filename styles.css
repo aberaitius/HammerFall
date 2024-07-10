@@ -63,6 +63,14 @@ input[type="number"], input[type="text"] {
     font-size: 16px;
 }
 
+input[type="number"].total-expense-mode, input[type="text"].total-expense-mode {
+    border-color: #4caf50;
+}
+
+input[type="number"].ideal-bid-mode, input[type="text"].ideal-bid-mode {
+    border-color: #007bff;
+}
+
 .form-actions {
     display: flex;
     justify-content: space-between;
@@ -87,6 +95,14 @@ input[type="number"], input[type="text"] {
 
 .btn-primary:hover {
     background-color: #0056b3;
+}
+
+.btn.total-expense-mode {
+    background: #4caf50;
+}
+
+.btn.ideal-bid-mode {
+    background: #007bff;
 }
 
 .result {
@@ -155,7 +171,6 @@ input[type="number"], input[type="text"] {
     font-size: 16px;
     outline: none;
     box-shadow: none;
-    
 }
 
 .editable:hover {
@@ -188,4 +203,79 @@ footer {
     color: #667;
     text-align: center;
     margin-top: 20px;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center; /* Center the toggle button */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-right: 10px; /* Add some space between the switch and the label */
+    flex-shrink: 0; /* Prevent the switch from shrinking */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #007bff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+input:not(:checked) + .slider {
+    background-color: #4caf50;
+}
+
+input:not(:checked) + .slider:before {
+    transform: translateX(0);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+#calcModeLabel {
+    transition: all 0.4s ease; /* Smooth transition for the text change */
+    flex-grow: 1; /* Allow the label to take the remaining space */
+    text-align: left; /* Align the text to the left */
 }

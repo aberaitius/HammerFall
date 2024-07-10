@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HammerPriceCalc | Auction Hammer Price Calculator</title>
-  <meta name="description" content="Easily calculate the hammer price for auction items based on your total expense. Perfect for auction bidders looking to budget accurately.">
-  <meta name="keywords" content="auction calculator, hammer price calculator, auction cost calculator, bidder budget calculator">
-  <meta name="author" content="HammerPriceCalc">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXX-Y');
-  </script>
-  <!-- Google Ads -->
-  <script data-ad-client="ca-pub-XXXXXXX" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bid Calculator</title>
+        <meta name="description" content="Easily calculate the hammer price for auction items based on your total expense. Perfect for auction bidders looking to budget accurately.">
+        <meta name="keywords" content="auction calculator, hammer price calculator, auction cost calculator, bidder budget calculator">
+        <meta name="author" content="Bid Calc">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-XXXXX-Y');
+        </script>
+        <!-- Google Ads -->
+        <script data-ad-client="ca-pub-XXXXXXX" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      </head>
 <body>
   <div class="container">
     <div class="calculator">
       <h1><i class="fas fa-gavel"></i> HammerPriceCalc</h1>
-      <p>Calculate the hammer price for auction items to ensure you stay within your budget. Simply enter your total expense, and we'll do the rest!</p>
+      <p>Calculate the hammer price for auction items to ensure you stay within your budget or determine your ideal bid. Simply enter your details, and we'll do the rest!</p>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="calcMode">
+          <span class="slider round"></span>
+        </label>
+        <span id="calcModeLabel">Calculate Total Expense</span>
+      </div>
       <form id="auctionForm">
         <div class="form-group">
-          <label for="totalExpense">Total Expense</label>
-          <input type="number" id="totalExpense" class="form-control" value="" placeholder="The total amount you are willing to spend" required>
+          <label id="inputLabel" for="totalExpense">Total Expense</label>
+          <input type="number" id="totalExpense" class="form-control total-expense-mode" value="" placeholder="The total amount you are willing to spend" required>
           <span id="expenseError" class="error-message"></span>
         </div>
         <div class="form-group">
@@ -46,18 +54,23 @@
           <input type="number" id="taxPremiumRate" class="form-control" placeholder="example: 15 (15%)" value="" required>
           <span id="taxPremiumError" class="error-message"></span>
         </div>
+        <div class="form-group">
+          <label for="taxChargesRate">Tax Rate on Charges (%)</label>
+          <input type="number" id="taxChargesRate" class="form-control" placeholder="example: 15 (15%)" value="" required>
+          <span id="taxChargesError" class="error-message"></span>
+        </div>
         <div class="form-actions">
-          <button style="width: 100%;" type="submit" class="btn">Calculate Hammer Price</button>
+          <button style="width: 100%;" type="submit" class="btn total-expense-mode">Calculate</button>
         </div>
       </form>
       <div id="result" class="result"></div>
-     <div><button id="addToTable" class="btn btn-primary" style="display: none;">Add to Table</button></div>
+      <div><button id="addToTable" class="btn btn-primary" style="display: none;">Add to Table</button></div>
       <table id="hammerfallTable" class="table" style="display: none;">
         <thead>
           <tr>
             <th>Hammerfall Amount</th>
             <th>Description</th>
-            <th>TotalExpense</th>
+            <th>Total Expense</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -71,6 +84,7 @@
           <li><strong>Buyer's Premium:</strong> A percentage fee paid by the buyer to the auction house, calculated on the hammer price.</li>
           <li><strong>Tax Rate on Hammer Price:</strong> The percentage of tax applied to the hammer price.</li>
           <li><strong>Tax Rate on Buyer's Premium:</strong> The percentage of tax applied to the buyer's premium.</li>
+          <li><strong>Tax Rate on Charges:</strong> The percentage of tax applied to additional charges.</li>
         </ul>
       </div>
     </div>
